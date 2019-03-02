@@ -10,7 +10,7 @@ import os
 import csv
 
 #Create Lists
-VID=[]
+V_ID=[]
 County=[]
 Candidate=[]
 UniqueList=[]
@@ -28,7 +28,7 @@ with open(csvpath, newline='') as csvfile:
    
    #Append lists  
     for line in csvreader:
-        VID.append(line[0])
+        V_ID.append(line[0])
         County.append(line[1])
         Candidate.append(line[2])
     
@@ -38,7 +38,7 @@ with open(csvpath, newline='') as csvfile:
             
 #Create dictionary with total number of votes for each candidate 
 result_dict = dict( [ (i, Candidate.count(i)) for i in set(Candidate) ] )            
-length=int(len(VID))
+length=int(len(V_ID))
 
 
 #find percentage of total votes for each candidate 
