@@ -36,14 +36,16 @@ for i in range(len(PL)-1):
     
     change.append(int(PL[i+1]-PL[i]))
 average_change=round((sum(change)/len(change)),2)
+
     
 #print financial analysis sheet 
 print("Financial Analysis")
 print("........................................")
 print("Total Months: "+ str(len(Months)))
 print("Total: $" +str(sum(PL)))
-print("Greatest Increase in Profits: $" + str(max(change)))
-print("Greatest Decrease in Profits : $"+ str(min(change)))
+#print max increase and decrease and find associated month 
+print("Greatest Increase in Profits: $" + str(max(change)) + ", " + str(Months[(change.index(1926159)+1)]))
+print("Greatest Decrease in Profits : $"+ str(min(change)) + ", " + (Months[(change.index(-2196167)+1)]))
 print("Average Change: $" + str(average_change))
 
 # Set variable for output file
@@ -55,3 +57,10 @@ with open(output_file, "w", newline="") as datafile:
 
     # Write in rows
     writer.writerow(["Financial Analysis"])
+    writer.writerow(["........................................"])
+    writer.writerow(["Total Months: "+ str(len(Months))])
+    writer.writerow(["Total: $" +str(sum(PL))])
+    writer.writerow(["Greatest Increase in Profits: $" + str(max(change)) + ", " + str(Months[(change.index(1926159)+1)])])
+    writer.writerow(["Greatest Decrease in Profits : $"+ str(min(change)) + ", " + (Months[(change.index(-2196167)+1)])])
+    writer.writerow(["Average Change: $" + str(average_change)])
+    
